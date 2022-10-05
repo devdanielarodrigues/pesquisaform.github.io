@@ -1,0 +1,634 @@
+<html lang="pt-br"><head>
+
+	<meta charset="UTF-8">
+	
+  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="#">
+  
+  <link rel="mask-icon" type="image/x-icon" href="#" color="#111">
+  
+  
+	<title>Pesquisa</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=auto">
+  <style>
+  body {
+	font-family: "Montserrat", sans-serif;
+	background: #f1f3f6;
+	font-weight: 300;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .btn {
+	color: #6d7587;
+	font-weight: 400;
+  }
+  
+  h2::after,
+  h3:after,
+  h4:after,
+  h5:after,
+  h6:after {
+	content: " ";
+	display: block;
+	width: 50px;
+	height: 2px;
+	background: #080a79;
+	margin: 0.25rem 0 0.5rem 0;
+  }
+  
+  h1 {
+	font-size: 3rem;
+  }
+  
+  h2 {
+	font-size: 2rem;
+  }
+  
+  h3 {
+	font-size: 1.75rem;
+  }
+  
+  h4 {
+	font-size: 1.5rem;
+  }
+  
+  h5 {
+	font-size: 1.3rem;
+  }
+  
+  h6 {
+	font-size: 1.25rem;
+  }
+  
+  p {
+	margin: 0.5rem 0 1.5rem;
+	font-size: 1.1rem;
+	line-height: 1.75rem;
+	color: #6d7587;
+  }
+  
+  a {
+	color: #080a79;
+  }
+  
+  img {
+	display: block;
+	width: 100%;
+	height: auto;
+  }
+  
+  header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  }
+  
+  header nav ul {
+	display: flex;
+  }
+  
+  header nav ul li {
+	margin: 0 1rem;
+  }
+  
+  header nav ul li a {
+	font-size: 1.15rem;
+	color: #6d7587;
+	text-decoration: none;
+  }
+  
+  header nav ul li a.active {
+	font-weight: 400;
+	color: #080a79;
+  }
+  
+  .wrapper {
+	width: 1000px;
+	margin: 10vh auto;
+  }
+  
+  .wrapper *,
+  .wrapper *::before,
+  .wrapper *::after {
+	border-radius: 10px;
+  }
+  
+  .wrapper h1 {
+	width: 420px;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1.5rem;
+	position: relative;
+	border: 1px solid;
+	border-top-color: #FFF;
+	border-right-color: rgba(0, 0, 0, 0.025);
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+	border-left-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 3px 3px 8px 2px #dce1ed;
+	background: #f1f3f6;
+	color: #c1bacc;
+  }
+  
+  .wrapper h1::before {
+	content: " ";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: -3px -3px 8px 5px rgba(255, 255, 255, 0.5);
+	z-index: -1;
+  }
+  
+  .buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 4rem;
+  }
+  
+  .buttons a {
+	position: relative;
+	border: 1px solid;
+	border-top-color: #FFF;
+	border-right-color: rgba(0, 0, 0, 0.025);
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+	border-left-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 3px 3px 8px 2px #dce1ed;
+	background: #f1f3f6;
+	text-decoration: none;
+	display: block;
+	width: 75px;
+	height: 75px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	margin: 0 2rem;
+	transition: 0.5s ease;
+  }
+  
+  .buttons a::before {
+	content: " ";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: -3px -3px 8px 5px rgba(255, 255, 255, 0.5);
+	z-index: -1;
+  }
+  
+  .buttons a:hover {
+	color: #080a79;
+	border-color: #080a79;
+  }
+  
+  main {
+	max-width: 700px;
+	margin: 5rem auto;
+	padding: 2rem;
+	position: relative;
+	border: 1px solid;
+	border-top-color: #FFF;
+	border-right-color: rgba(0, 0, 0, 0.025);
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+	border-left-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 3px 3px 8px 2px #dce1ed;
+	background: #f1f3f6;
+  }
+  
+  main::before {
+	content: " ";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: -3px -3px 8px 5px rgba(255, 255, 255, 0.5);
+	z-index: -1;
+  }
+  
+  .image-gallery {
+	margin-top: 3rem;
+	margin-bottom: 5rem;
+  }
+  
+  .image-gallery h4 {
+	text-align: center;
+  }
+  
+  .image-gallery h4::after {
+	margin: 0.5rem auto 1rem auto;
+  }
+  
+  .image-gallery .img-flex {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+  }
+  
+  .image-gallery img {
+	width: 30%;
+	margin: 1.6%;
+	filter: grayscale(0.75);
+	transition: 0.5s ease;
+	cursor: pointer;
+  }
+  
+  .image-gallery img:hover {
+	filter: grayscale(0);
+	box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.25);
+	transform: translateY(-3px);
+  }
+  
+  .forms h6 {
+	margin-top: 2.5rem;
+  }
+  
+  .forms form input,
+  .forms form label,
+  .forms form textarea,
+  .forms form select {
+	display: block;
+  }
+  
+  .forms form input,
+  .forms form textarea,
+  .forms form select {
+	margin: 0.25rem 0 0.75rem 0;
+  }
+  
+  .forms form label {
+	margin: 1.5rem 0 0.5rem 0;
+	font-weight: 400;
+  }
+  
+  .forms form input[type=text],
+  .forms form select,
+  .forms form textarea {
+	padding: 0.5rem;
+	position: relative;
+	border: 1px solid;
+	border-top-color: #FFF;
+	border-right-color: rgba(0, 0, 0, 0.025);
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+	border-left-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 3px 3px 8px 2px #dce1ed;
+	background: #f1f3f6;
+	border-radius: 5px;
+	background: #FFF;
+	width: 400px;
+  }
+  
+  .forms form .checkbox-group label,
+  .forms form .radio-group label {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin: 0.25rem 0 1.25rem 0;
+	padding-left: 1.75rem;
+	height: 20px;
+  }
+  
+  *:focus {
+	outline: 2px solid #101fa7;
+  }
+  
+  .forms form input[type=checkbox],
+  .forms form input[type=radio] {
+	opacity: 0;
+	z-index: 50;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .forms form input[type=checkbox] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 22px;
+	height: 22px;
+  }
+  
+  .forms form .neo-checkbox {
+	position: relative;
+	border: 1px solid;
+	border-top-color: #FFF;
+	border-right-color: rgba(0, 0, 0, 0.025);
+	border-bottom-color: rgba(0, 0, 0, 0.1);
+	border-left-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 3px 3px 8px 2px #dce1ed;
+	background: #f1f3f6;
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	background: rgb(0, 38, 255);
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #FFF;
+	margin: 0;
+	padding: 0;
+	transition: 0.3s ease;
+  }
+  
+  .forms form .neo-checkbox::after {
+	content: "";
+	display: block;
+	transform: rotate(30deg);
+	opacity: 0;
+	position: absolute;
+	left: 7px;
+	top: 2px;
+	width: 4px;
+	height: 10px;
+	border: solid #FFF;
+	border-width: 0 2px 2px 0;
+	background-color: transparent;
+	border-radius: 0;
+	transition: 0.3s ease;
+  }
+  
+  .forms form input:checked ~ .neo-checkbox {
+	background: #080a79;
+	border-color: #080a79;
+  }
+  
+  .forms form input:checked ~ .neo-checkbox::after {
+	opacity: 1;
+  }
+  /* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+  </style>
+  
+	<script>
+	window.console = window.console || function(t) {};
+  </script>
+  
+	
+	
+	<script>
+	if (document.location.search.match(/type=embed/gi)) {
+	  window.parent.postMessage("resize", "*");
+	}
+  </script>
+  
+  
+  </head>
+  
+  <body translate="no">
+	<div class="circle small"></div>
+  <div class="circle medium"></div>
+  <div class="circle large"></div>
+  
+  <header>
+	  <div><img src="./logo.png"></div>
+	  <nav>
+		  <ul>
+			  <li><a href="#" class="active"></a></li>
+			  <li><a href="#"></a></li>
+			  <li><a href="#"></a></li>
+		  </ul>
+	  </nav>
+  </header>
+  
+  <div class="wrapper">
+	  <h1 class="title">Pesquisa Vet</h1>
+	  <main>
+		  <h2>Olá, tudo bem?</h2>
+		  <p>Somos da área de pesquisa da Ford Motor Company SA e estamos buscando conhecer melhor o trabalho de quem atua/atende demandas no campo, com o objetivo de aprimorar nossos produtos e serviços.</p>
+		  
+		  <p>Caso tenha alguma dúvida ou quiera confirmar a veracidade dessa pesquisa, não hesite em entrar em contato com a gente:<a href="dsoare10@ford.com">Danilo</a> ou <a href="mdemetre@ford.com">Matheus</a> </p>
+		  <section class="forms"><br>
+			  <h4>Pesquisa</h4>
+			  <form action="#">
+				
+				<div class="checkbox-group">
+					<h6>1. Você realiza atendimentos visitando fazendas ou áreas rurais?</h6>
+					
+					<label for="Check">
+						<input type="checkbox">
+						<span class="neo-checkbox"></span>
+						Sim
+					</label>
+					
+					<label for="Check">
+						<input type="checkbox">
+						<span class="neo-checkbox"></span>
+						Não
+					</label>
+					</div>
+				  
+					<div class="checkbox-group">
+						<h6>2. Qual sua área de atuação?</h6>
+						
+				       <textarea name="textarea" id="textarea" cols="2" rows="2"></textarea>
+						</div>
+				  
+				  <div class="checkbox-group">
+					  <h6>3.Qual tipo de veículo você utiliza para realizar os atendimentos?</h6>
+					  
+					  <label for="Check">
+						  <input type="checkbox">
+						  <span class="neo-checkbox"></span>
+						  Caminhonete grande(ex:Hilux,Ranger,S10)
+					  </label>
+					  
+					  <label for="Check">
+						  <input type="checkbox">
+						  <span class="neo-checkbox"></span>
+						  Caminhonete média(ex:Oroch,Toro)
+					  </label>
+					  <label for="Check">
+						  <input type="checkbox">
+						  <span class="neo-checkbox"></span>
+						  Caminhonete pequena(ex:Strada,Saveiro)
+					  </label>
+					  <label for="Check">
+						<input type="checkbox">
+						<span class="neo-checkbox"></span>
+						Veiculo de passeio(ex:hatches e sedans)
+					</label>
+					<label for="Check">
+						<input type="checkbox">
+						<span class="neo-checkbox"></span>
+						Outro
+					</label>
+					<textarea name="textarea" id="textarea" cols="2" rows="2"></textarea>
+  
+				  </div>
+				  
+				  <div class="checkbox-group">
+					<h6>4. Você teria interesse em participar de uma bate papo individual?(duração máxima de 30min e de acordo com a sua disponibilidade)</h6>
+					
+					<label for="Check">
+						<input type="checkbox">
+						<span class="neo-checkbox"></span>
+						Sim
+					</label>
+					
+					<label for="Check">
+						<input type="checkbox">
+						<span class="neo-checkbox"></span>
+						Não
+					</label>
+					</div>
+				  
+					<div class="checkbox-group">
+						<h6>5. Deixe seu telefone para contato para que possamos agendar(DDD + número de telefone).Observação: seu contato Não será utilizado para outras pesquisas e após o bate-papo ele será removido de nossa base.</h6>
+						
+						<label for="Check">
+							<input type="checkbox">
+							<span class="neo-checkbox"></span>
+							Telefone com DDD:
+						</label>
+						<textarea name="textarea" id="textarea" cols="1" rows="1"></textarea>
+						
+						<label for="Check">
+							<input type="checkbox">
+							<span class="neo-checkbox"></span>
+							Nome para contato:
+						</label>
+						<textarea name="textarea" id="textarea" cols="1" rows="1"></textarea>
+						</div>
+						<div><button class="circle large" onclick="openForm()">Enviar</button></div>
+			  </form>
+		  </section>
+		  
+	  </main>
+  </div>
+  <div class="form-popup" id="myForm">
+	<form action="/action_page.php" class="form-container">
+	 <div>
+	  <label for="email"><b>Email</b></label>
+	  <input type="checkbox" placeholder="Enter Email" name="email" required>
+	  </div>
+  
+	  <label for="psw"><b>Password</b></label>
+	  <input type="checkbox" placeholder="Enter Password" name="psw" required>
+  
+	  <button type="submit" class="btn">Login</button>
+	  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+	</form>
+  </div>
+	  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script id="rendered-js">
+  $('.tab-nav li').click(function () {
+	let tabButton = $(this).attr('data-tab');
+	let tabData = $('.tab-content');
+  
+	console.log(tabData);
+	console.log(tabButton);
+  
+	if (tabData.attr('data-tab') == tabButton) {
+  
+	}
+  
+	alert('Tab Number: ');
+  
+  
+	$('.tab-nav').find('.active-tab').removeClass('active-tab');
+	$(this).addClass('active-tab');
+  
+  
+  
+  });
+  //# sourceURL=pen.js
+	  </script>
+	  <script>
+	  
+	  function openForm() {
+		document.getElementById("myForm").style.display = "block";
+	  }
+	  
+	  function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+	  }</script>
+  
+	
+  
+  
+  
+  
+   
+  </body></html>
